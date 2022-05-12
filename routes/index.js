@@ -13,8 +13,10 @@ router.post('/new', blogController.post_create_post)
 router.get('/:id/delete', blogController.post_delete_get);
 router.post('/:id/delete', blogController.post_delete_post);
 
-router.get('/signup', blogController.signup_get);
-router.post('/signup', blogController.signup_post);
+
+// router.get('/signup', blogController.signup_get);
+// router.post('/signup', blogController.signup_post);
+
 
 router.get('/login', blogController.login_get);
 router.post('/login', blogController.login_post);
