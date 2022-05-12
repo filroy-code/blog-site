@@ -126,11 +126,13 @@ exports.post_delete_get = function(req, res, next) {
 }
 
 exports.post_delete_post = function(req, res, next) {
-    Post.findByIdAndRemove(req.params.id, function deletePost(err) {
-        if (err) { return next(err); }
-            res.render('post_details', {user: req.user} )
+    if (req.user) {
+        Post.findByIdAndRemove(req.params.id, function deletePost(err) {
+            if (err) { return next(err); }
+                res.render('post_details', {user: req.user} )
+            })
         }
-    )
+    else {res.render('post_details', { user: req.user, delete_error: true } )}
 }
 
 exports.signup_get = function(req, res, next) {

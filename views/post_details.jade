@@ -2,6 +2,9 @@ extends layout
 
 block content
 
+    if delete_error
+      h5 You must be logged in to delete a post.
+      
     if post
         h3 #{post.title} 
         em #{post.formatted_date}
@@ -20,4 +23,5 @@ block content
                     a.delete_confirm_button(href="/") No
 
     else
+      if (!delete_error)
         p No post found.
